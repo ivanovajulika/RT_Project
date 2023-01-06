@@ -45,14 +45,6 @@ def test_btn_ls(browser):
 
 
 @allure.story(
-    "TC_003.01 | Меню выбора типа аутентификации - При вводе эл.почты в поле 'Телефон' таб выбора аутентификации меняется автоматически."
-)
-def test_btn_phone_default(browser):
-    # создает экземпляр страницы авторизации
-    page = LoginPage(browser, link)
-
-
-@allure.story(
     "TC_002.01 | Меню выбора типа аутентификации - По умолчанию выбрана кнопка переключения между вкладками 'Телефон'"
 )
 def test_btn_phone_default(browser):
@@ -60,6 +52,14 @@ def test_btn_phone_default(browser):
     page = LoginPage(browser, link)
     # проверяет, что кнопка по дефолту содержит текст 'Телефон'.
     page.should_be_btn_default()
+
+
+@allure.story(
+    "TC_003.01 | Меню выбора типа аутентификации - При вводе эл.почты в поле 'Телефон' таб выбора аутентификации меняется автоматически."
+)
+def test_tab_changes_automatically(browser):
+    # создает экземпляр страницы авторизации
+    page = LoginPage(browser, link)
 
 
 @allure.story("TC_004.01 | Наличие кнопки авторизации через соц. сеть VK")
