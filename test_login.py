@@ -1,5 +1,6 @@
 from pages.login_page import LoginPage
 import allure
+import pytest
 
 link = "https://b2c.passport.rt.ru"
 
@@ -7,6 +8,8 @@ link = "https://b2c.passport.rt.ru"
 @allure.story(
     "TC_005.01 | Пользователь может авторизоваться по валидной эл.почте и валидному паролю."
 )
+@pytest.mark.xfail
+# Тест проходит не всегда, т.к на сайте добавлена Капча
 def test_user_can_autorize(browser):
     # создает экземпляр страницы авторизации
     page = LoginPage(browser, link)
@@ -19,6 +22,8 @@ def test_user_can_autorize(browser):
 @allure.story(
     "TC_005.02 | Система выводит сообщение об ошибке при вводе не валидного пароля."
 )
+@pytest.mark.xfail
+# Тест проходит не всегда, т.к на сайте добавлена Капча
 def test_error_invalid_password(browser):
     # создает экземпляр страницы авторизации
     page = LoginPage(browser, link)
