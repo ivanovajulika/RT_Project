@@ -1,8 +1,10 @@
 from pages.login_page import LoginPage
+import allure
 
 link = "https://b2c.passport.rt.ru"
 
 
+@allure.story("TC_001.01 | Меню выбора типа аутентификации - кнопка 'Телефон'")
 def test_btn_phone(browser):
     # создает экземпляр страницы авторизации
     page = LoginPage(browser, link)
@@ -14,6 +16,7 @@ def test_btn_phone(browser):
     page.go_to_phone_btn()
 
 
+@allure.story("TC_001.02 | Меню выбора типа аутентификации - кнопка 'Почта'")
 def test_btn_mail(browser):
     # создает экземпляр страницы авторизации
     page = LoginPage(browser, link)
@@ -25,6 +28,7 @@ def test_btn_mail(browser):
     page.go_to_mail_btn()
 
 
+@allure.story("TC_001.03 | Меню выбора типа аутентификации - кнопка 'Логин'")
 def test_btn_login(browser):
     # создает экземпляр страницы авторизации
     page = LoginPage(browser, link)
@@ -36,6 +40,7 @@ def test_btn_login(browser):
     page.go_to_login_btn()
 
 
+@allure.story("TC_001.04 | Меню выбора типа аутентификации - кнопка 'Лицевой счет'")
 def test_btn_ls(browser):
     # создает экземпляр страницы авторизации
     page = LoginPage(browser, link)
@@ -47,7 +52,7 @@ def test_btn_ls(browser):
     page.go_to_ls_btn()
 
 
-# Тест проверяет, что пользователь может перейти на страницу авторизации соц.сети VK
+@allure.story("TC_004.01 | Наличие кнопки авторизации через соц. сеть VK")
 def test_user_can_go_to_vk(browser):
     # создает экземпляр страницы авторизации
     page = LoginPage(browser, link)
@@ -59,7 +64,7 @@ def test_user_can_go_to_vk(browser):
     page.go_to_vk_page()
 
 
-# Тест проверяет, что пользователь может перейти на страницу авторизации соц.сети OK
+@allure.story("TC_004.02 | Наличие кнопки авторизации через соц. сеть OK")
 def test_user_can_go_to_ok(browser):
     # создает экземпляр страницы авторизации
     page = LoginPage(browser, link)
@@ -71,7 +76,7 @@ def test_user_can_go_to_ok(browser):
     page.go_to_ok_page()
 
 
-# Тест проверяет, что пользователь может перейти на страницу авторизации соц.сети MAIL
+@allure.story("TC_004.03 | Наличие кнопки авторизации через соц. сеть Mail")
 def test_user_can_go_to_mail(browser):
     # создает экземпляр страницы авторизации
     page = LoginPage(browser, link)
@@ -83,7 +88,7 @@ def test_user_can_go_to_mail(browser):
     page.go_to_mail_page()
 
 
-# Тест проверяет, что пользователь может перейти на страницу авторизации соц.сети GOOGLE
+@allure.story("TC_004.04 | Наличие кнопки авторизации через соц. сеть Google")
 def test_user_can_go_to_google(browser):
     # создает экземпляр страницы авторизации
     page = LoginPage(browser, link)
@@ -95,7 +100,7 @@ def test_user_can_go_to_google(browser):
     page.go_to_google_page()
 
 
-# Тест проверяет, что пользователь может перейти на страницу авторизации соц.сети YA
+@allure.story("TC_004.05 | Наличие кнопки авторизации через соц. сеть YA")
 def test_user_can_go_to_ya(browser):
     # создает экземпляр страницы авторизации
     page = LoginPage(browser, link)
