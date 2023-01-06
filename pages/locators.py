@@ -6,6 +6,7 @@ class LoginPageLocators:
     BTN_MAIL = (By.ID, "t-btn-tab-mail")
     BTN_LOGIN = (By.ID, "t-btn-tab-login")
     BTN_LS = (By.ID, "t-btn-tab-ls")
+    BTN_DEFAULT = (By.CLASS_NAME, "rt-tab--active")
     LINK_FORGOT_PASSWORD = (By.ID, "forgot_password")
     INPUT_USERNAME = (By.ID, "username")
     INPUT_PASSWORD = (By.ID, "password")

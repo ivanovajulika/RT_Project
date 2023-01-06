@@ -1,4 +1,5 @@
 from selenium.common.exceptions import NoSuchElementException
+
 # from .locators import BasePageLocators
 from .locators import LoginPageLocators
 
@@ -7,9 +8,6 @@ class BasePage:
     def __init__(self, browser, link):
         self.browser = browser
         self.link = link
-
-    def open_page(self):
-        self.browser.get(self.link)
 
     def element_is_present(self, method, locator):
         try:
