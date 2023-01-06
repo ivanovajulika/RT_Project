@@ -130,6 +130,7 @@ class LoginPage(BasePage):
         self.browser.find_element(*LoginPageLocators.BTN_ENTER).click()
 
     def autorized_user_with_invalid_password(self):
+        self.browser.implicitly_wait(10)
         self.browser.find_element(*LoginPageLocators.BTN_MAIL).click()
         email_input = self.browser.find_element(*LoginPageLocators.INPUT_USERNAME)
         email_input.send_keys(Data.email)
