@@ -57,11 +57,71 @@ def test_btn_phone_default(browser):
 @allure.story(
     "TC_003.01 | Меню выбора типа аутентификации - При вводе эл.почты в поле 'Телефон' таб выбора аутентификации меняется автоматически."
 )
-def test_tab_changes_automatically(browser):
+def test_input_mail_in_phone(browser):
     # создает экземпляр страницы авторизации
     page = LoginPage(browser, link)
     # проверяет что таб меняется автоматически.
-    page.should_be_tab_changes_automatically()
+    page.should_be_tab_changes_mail_in_phone()
+
+
+@allure.story(
+    "TC_003.02 | Меню выбора типа аутентификации - При вводе Логина в поле 'Телефон' таб выбора аутентификации меняется автоматически."
+)
+def test_input_login_in_phone(browser):
+    # создает экземпляр страницы авторизации
+    page = LoginPage(browser, link)
+    # проверяет что таб меняется автоматически.
+    page.should_be_tab_changes_login_in_phone()
+
+
+@allure.story(
+    "TC_003.03 | Меню выбора типа аутентификации - При вводе номера телефона в поле 'Почта' таб выбора аутентификации меняется автоматически."
+)
+def test_input_phone_in_mail(browser):
+    # создает экземпляр страницы авторизации
+    page = LoginPage(browser, link)
+    # проверяет что таб меняется автоматически.
+    page.should_be_tab_changes_phone_in_mail()
+
+
+@allure.story(
+    "TC_003.04 | Меню выбора типа аутентификации - При вводе Логина в поле 'Почта' таб выбора аутентификации меняется автоматически."
+)
+def test_input_login_in_mail(browser):
+    # создает экземпляр страницы авторизации
+    page = LoginPage(browser, link)
+    # проверяет что таб меняется автоматически.
+    page.should_be_tab_changes_login_in_mail()
+
+
+@allure.story(
+    "TC_003.05 | Меню выбора типа аутентификации - При вводе Лицевого счета в поле 'Почта' таб выбора аутентификации меняется автоматически."
+)
+def test_input_ls_in_mail(browser):
+    # создает экземпляр страницы авторизации
+    page = LoginPage(browser, link)
+    # проверяет что таб меняется автоматически.
+    page.should_be_tab_changes_ls_in_mail()
+
+
+@allure.story(
+    "TC_003.06 | Меню выбора типа аутентификации - При вводе эл.почты в поле 'Лицевой счет' таб выбора аутентификации меняется автоматически."
+)
+def test_input_mail_in_ls(browser):
+    # создает экземпляр страницы авторизации
+    page = LoginPage(browser, link)
+    # проверяет что таб меняется автоматически.
+    page.should_be_tab_changes_mail_in_ls()
+
+
+@allure.story(
+    "TC_003.07 | Меню выбора типа аутентификации - При вводе Логина в поле 'Лицевой счет' таб выбора аутентификации меняется автоматически."
+)
+def test_input_login_in_ls(browser):
+    # создает экземпляр страницы авторизации
+    page = LoginPage(browser, link)
+    # проверяет что таб меняется автоматически.
+    page.should_be_tab_changes_login_in_ls()
 
 
 @allure.story("TC_004.01 | Наличие кнопки авторизации через соц. сеть VK")

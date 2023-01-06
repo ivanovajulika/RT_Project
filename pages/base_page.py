@@ -16,16 +16,21 @@ class BasePage:
             return False
         return True
 
-    def btn_mask(self, method, locator, word):
+    def tab_changes_automatically(self, method, locator, data):
         self.browser.find_element(method, locator).click()
+        input = self.browser.find_element(*LoginPageLocators.INPUT_USERNAME)
+        input.send_keys(data)
+        self.browser.find_element(*LoginPageLocators.INPUT_PASSWORD).click()
+
+    def changes_color(self, method, locator, c):
         color = self.browser.find_element(method, locator).value_of_css_property(
             "color"
         )
-        assert color == "rgba(255, 79, 18, 1)", "Wrong color"
-        text = self.browser.find_element(*LoginPageLocators.PLACEHOLDER_LOGIN).text
+        assert color == c, "Wrong color"
+
+    def changes_text(self, method, locator, word):
+        text = self.browser.find_element(method, locator).text
         assert text == word, "Wrong text in placeholder"
-        text = self.browser.find_element(*LoginPageLocators.PLACEHOLDER_PASSWORD).text
-        assert text == "Пароль", "Wrong text in placeholder"
 
     # def should_be_autorized_user(self):
     #     assert self.element_is_present(*BasePageLocators.USER_ICON)

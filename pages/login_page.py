@@ -8,25 +8,37 @@ class LoginPage(BasePage):
         assert self.element_is_present(*LoginPageLocators.BTN_PHONE)
 
     def go_to_phone_btn(self):
-        self.btn_mask(*LoginPageLocators.BTN_PHONE, "Мобильный телефон")
+        self.browser.find_element(*LoginPageLocators.BTN_PHONE).click()
+        self.changes_color(*LoginPageLocators.BTN_PHONE, "rgba(255, 79, 18, 1)")
+        self.changes_text(*LoginPageLocators.PLACEHOLDER_LOGIN, "Мобильный телефон")
+        self.changes_text(*LoginPageLocators.PLACEHOLDER_PASSWORD, "Пароль")
 
     def should_be_btn_mail(self):
         assert self.element_is_present(*LoginPageLocators.BTN_MAIL)
 
     def go_to_mail_btn(self):
-        self.btn_mask(*LoginPageLocators.BTN_MAIL, "Электронная почта")
+        self.browser.find_element(*LoginPageLocators.BTN_MAIL).click()
+        self.changes_color(*LoginPageLocators.BTN_MAIL, "rgba(255, 79, 18, 1)")
+        self.changes_text(*LoginPageLocators.PLACEHOLDER_LOGIN, "Электронная почта")
+        self.changes_text(*LoginPageLocators.PLACEHOLDER_PASSWORD, "Пароль")
 
     def should_be_btn_login(self):
         assert self.element_is_present(*LoginPageLocators.BTN_LOGIN)
 
     def go_to_login_btn(self):
-        self.btn_mask(*LoginPageLocators.BTN_LOGIN, "Логин")
+        self.browser.find_element(*LoginPageLocators.BTN_LOGIN).click()
+        self.changes_color(*LoginPageLocators.BTN_LOGIN, "rgba(255, 79, 18, 1)")
+        self.changes_text(*LoginPageLocators.PLACEHOLDER_LOGIN, "Логин")
+        self.changes_text(*LoginPageLocators.PLACEHOLDER_PASSWORD, "Пароль")
 
     def should_be_btn_ls(self):
         assert self.element_is_present(*LoginPageLocators.BTN_LS)
 
     def go_to_ls_btn(self):
-        self.btn_mask(*LoginPageLocators.BTN_LS, "Лицевой счёт")
+        self.browser.find_element(*LoginPageLocators.BTN_LS).click()
+        self.changes_color(*LoginPageLocators.BTN_LS, "rgba(255, 79, 18, 1)")
+        self.changes_text(*LoginPageLocators.PLACEHOLDER_LOGIN, "Лицевой счёт")
+        self.changes_text(*LoginPageLocators.PLACEHOLDER_PASSWORD, "Пароль")
 
     def should_be_link_to_vk_page(self):
         assert self.element_is_present(*LoginPageLocators.LINK_VK)
@@ -64,23 +76,49 @@ class LoginPage(BasePage):
         assert "yandex.ru/auth" in self.browser.current_url, "wrong url"
 
     def should_be_btn_default(self):
-        text = self.browser.find_element(*LoginPageLocators.BTN_DEFAULT).text
-        assert text == "Телефон", "Wrong text"
+        self.changes_text(*LoginPageLocators.BTN_DEFAULT, "Телефон")
 
-    def should_be_tab_changes_automatically(self):
-        email_input = self.browser.find_element(*LoginPageLocators.INPUT_USERNAME)
-        email_input.send_keys(Data.email)
-        self.browser.find_element(*LoginPageLocators.INPUT_PASSWORD).click()
-        color = self.browser.find_element(
-            *LoginPageLocators.BTN_MAIL
-        ).value_of_css_property("color")
-        assert color == "rgba(255, 79, 18, 1)", "Wrong color"
-        color = self.browser.find_element(
-            *LoginPageLocators.BTN_PHONE
-        ).value_of_css_property("color")
-        assert color == "rgba(16, 24, 40, 1)", "Wrong color"
-        text = self.browser.find_element(*LoginPageLocators.PLACEHOLDER_ACTIVE).text
-        assert text == "Электронная почта", "Wrong text in placeholder"
+    def should_be_tab_changes_mail_in_phone(self):
+        self.tab_changes_automatically(*LoginPageLocators.BTN_PHONE, Data.email)
+        self.changes_color(*LoginPageLocators.BTN_MAIL, "rgba(255, 79, 18, 1)")
+        self.changes_color(*LoginPageLocators.BTN_PHONE, "rgba(16, 24, 40, 1)")
+        self.changes_text(*LoginPageLocators.PLACEHOLDER_ACTIVE, "Электронная почта")
+
+    def should_be_tab_changes_login_in_phone(self):
+        self.tab_changes_automatically(*LoginPageLocators.BTN_PHONE, Data.login)
+        self.changes_color(*LoginPageLocators.BTN_LOGIN, "rgba(255, 79, 18, 1)")
+        self.changes_color(*LoginPageLocators.BTN_PHONE, "rgba(16, 24, 40, 1)")
+        self.changes_text(*LoginPageLocators.PLACEHOLDER_ACTIVE, "Логин")
+
+    def should_be_tab_changes_phone_in_mail(self):
+        self.tab_changes_automatically(*LoginPageLocators.BTN_MAIL, Data.phone)
+        self.changes_color(*LoginPageLocators.BTN_PHONE, "rgba(255, 79, 18, 1)")
+        self.changes_color(*LoginPageLocators.BTN_MAIL, "rgba(16, 24, 40, 1)")
+        self.changes_text(*LoginPageLocators.PLACEHOLDER_ACTIVE, "Мобильный телефон")
+
+    def should_be_tab_changes_login_in_mail(self):
+        self.tab_changes_automatically(*LoginPageLocators.BTN_MAIL, Data.login)
+        self.changes_color(*LoginPageLocators.BTN_LOGIN, "rgba(255, 79, 18, 1)")
+        self.changes_color(*LoginPageLocators.BTN_MAIL, "rgba(16, 24, 40, 1)")
+        self.changes_text(*LoginPageLocators.PLACEHOLDER_ACTIVE, "Логин")
+
+    def should_be_tab_changes_ls_in_mail(self):
+        self.tab_changes_automatically(*LoginPageLocators.BTN_MAIL, Data.ls)
+        self.changes_color(*LoginPageLocators.BTN_LS, "rgba(255, 79, 18, 1)")
+        self.changes_color(*LoginPageLocators.BTN_MAIL, "rgba(16, 24, 40, 1)")
+        self.changes_text(*LoginPageLocators.PLACEHOLDER_ACTIVE, "Лицевой счёт")
+
+    def should_be_tab_changes_mail_in_ls(self):
+        self.tab_changes_automatically(*LoginPageLocators.BTN_LS, Data.email)
+        self.changes_color(*LoginPageLocators.BTN_MAIL, "rgba(255, 79, 18, 1)")
+        self.changes_color(*LoginPageLocators.BTN_LS, "rgba(16, 24, 40, 1)")
+        self.changes_text(*LoginPageLocators.PLACEHOLDER_ACTIVE, "Электронная почта")
+
+    def should_be_tab_changes_login_in_ls(self):
+        self.tab_changes_automatically(*LoginPageLocators.BTN_LS, Data.login)
+        self.changes_color(*LoginPageLocators.BTN_LOGIN, "rgba(255, 79, 18, 1)")
+        self.changes_color(*LoginPageLocators.BTN_LS, "rgba(16, 24, 40, 1)")
+        self.changes_text(*LoginPageLocators.PLACEHOLDER_ACTIVE, "Логин")
 
     # def register_user(self, email="email", password="password"):
     #     email_input = self.browser.find_element(*LoginPageLocators.REG_EMAIL)
