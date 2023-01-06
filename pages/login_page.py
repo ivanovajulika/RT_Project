@@ -142,10 +142,14 @@ class LoginPage(BasePage):
         assert self.element_is_present(*BasePageLocators.BTN_LOGOUT)
 
     def should_be_color_grey(self):
-        self.changes_color(*LoginPageLocators.LINK_FORGOT_PASSWORD, "rgba(16, 24, 40, 0.5)")
+        self.changes_color(
+            *LoginPageLocators.LINK_FORGOT_PASSWORD, "rgba(16, 24, 40, 0.5)"
+        )
 
     def should_be_error(self):
-        self.changes_color(*LoginPageLocators.LINK_FORGOT_PASSWORD, "rgba(255, 79, 18, 1)")
+        self.changes_color(
+            *LoginPageLocators.LINK_FORGOT_PASSWORD, "rgba(255, 79, 18, 1)"
+        )
         assert self.element_is_present(*LoginPageLocators.LINK_ERROR)
         self.changes_text(*LoginPageLocators.LINK_ERROR, "Неверный логин или пароль")
 
