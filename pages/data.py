@@ -1,5 +1,7 @@
 class Data:
-    email = "test@mail.ru"
+    email = "julika77@mail.ru"
+    password = "Jul12345"
+    invalid_password = "12345678"
     login = "test123"
     phone = "+78888888888"
     ls = "888888888888"

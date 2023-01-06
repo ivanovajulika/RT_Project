@@ -1,5 +1,6 @@
 from .base_page import BasePage
 from .locators import LoginPageLocators
+from .locators import BasePageLocators
 from .data import Data
 
 
@@ -120,13 +121,33 @@ class LoginPage(BasePage):
         self.changes_color(*LoginPageLocators.BTN_LS, "rgba(16, 24, 40, 1)")
         self.changes_text(*LoginPageLocators.PLACEHOLDER_ACTIVE, "Логин")
 
-    # def register_user(self, email="email", password="password"):
-    #     email_input = self.browser.find_element(*LoginPageLocators.REG_EMAIL)
-    #     email_input.send_keys(email)
-    #     password_input = self.browser.find_element(*LoginPageLocators.REG_PASSWORD)
-    #     password_input.send_keys(password)
-    #     password_conf_input = self.browser.find_element(
-    #         *LoginPageLocators.CONFIRM_PASSWORD
-    #     )
-    #     password_conf_input.send_keys(password)
-    #     self.browser.find_element(*LoginPageLocators.REG_BTN).click()
+    def autorized_user_with_valid_data(self):
+        self.browser.find_element(*LoginPageLocators.BTN_MAIL).click()
+        email_input = self.browser.find_element(*LoginPageLocators.INPUT_USERNAME)
+        email_input.send_keys(Data.email)
+        password_input = self.browser.find_element(*LoginPageLocators.INPUT_PASSWORD)
+        password_input.send_keys(Data.password)
+        self.browser.find_element(*LoginPageLocators.BTN_ENTER).click()
+
+    def autorized_user_with_invalid_password(self):
+        self.browser.find_element(*LoginPageLocators.BTN_MAIL).click()
+        email_input = self.browser.find_element(*LoginPageLocators.INPUT_USERNAME)
+        email_input.send_keys(Data.email)
+        password_input = self.browser.find_element(*LoginPageLocators.INPUT_PASSWORD)
+        password_input.send_keys(Data.invalid_password)
+        self.browser.find_element(*LoginPageLocators.BTN_ENTER).click()
+
+    def should_be_autorized_user(self):
+        assert self.element_is_present(*BasePageLocators.BTN_LK)
+        assert self.element_is_present(*BasePageLocators.BTN_LOGOUT)
+
+    def should_be_color_grey(self):
+        self.changes_color(*LoginPageLocators.LINK_FORGOT_PASSWORD, "rgba(16, 24, 40, 0.5)")
+
+    def should_be_error(self):
+        self.changes_color(*LoginPageLocators.LINK_FORGOT_PASSWORD, "rgba(255, 79, 18, 1)")
+        assert self.element_is_present(*LoginPageLocators.LINK_ERROR)
+        self.changes_text(*LoginPageLocators.LINK_ERROR, "Неверный логин или пароль")
+
+    def should_be_captcha(self):
+        assert self.element_is_present(*LoginPageLocators.CAPTCHA)
