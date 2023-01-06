@@ -71,13 +71,13 @@ class LoginPage(BasePage):
         email_input = self.browser.find_element(*LoginPageLocators.INPUT_USERNAME)
         email_input.send_keys(Data.email)
         self.browser.find_element(*LoginPageLocators.INPUT_PASSWORD).click()
-        color = self.browser.find_element(*LoginPageLocators.BTN_MAIL).value_of_css_property(
-            "color"
-        )
+        color = self.browser.find_element(
+            *LoginPageLocators.BTN_MAIL
+        ).value_of_css_property("color")
         assert color == "rgba(255, 79, 18, 1)", "Wrong color"
-        color = self.browser.find_element(*LoginPageLocators.BTN_PHONE).value_of_css_property(
-            "color"
-        )
+        color = self.browser.find_element(
+            *LoginPageLocators.BTN_PHONE
+        ).value_of_css_property("color")
         assert color == "rgba(16, 24, 40, 1)", "Wrong color"
         text = self.browser.find_element(*LoginPageLocators.PLACEHOLDER_ACTIVE).text
         assert text == "Электронная почта", "Wrong text in placeholder"
