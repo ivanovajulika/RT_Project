@@ -62,6 +62,10 @@ class LoginPage(BasePage):
         self.browser.find_element(*LoginPageLocators.LINK_YA).click()
         assert "yandex.ru/auth" in self.browser.current_url, "wrong url"
 
+    def should_be_btn_default(self):
+        text = self.browser.find_element(*LoginPageLocators.BTN_DEFAULT).text
+        assert text == "Телефон", "Wrong text"
+
     # def register_user(self, email="email", password="password"):
     #     email_input = self.browser.find_element(*LoginPageLocators.REG_EMAIL)
     #     email_input.send_keys(email)
