@@ -13,6 +13,7 @@ class LoginPageLocators:
     BTN_ENTER = (By.ID, "kc-login")
     PLACEHOLDER_LOGIN = (By.XPATH, "(//*[@class='rt-input__placeholder'])[1]")
     PLACEHOLDER_PASSWORD = (By.XPATH, "(//*[@class='rt-input__placeholder'])[2]")
+    PLACEHOLDER_ACTIVE = (By.CLASS_NAME, "rt-input__placeholder--top")
 
     LINK_VK = (By.ID, "oidc_vk")
     LINK_OK = (By.ID, "oidc_ok")

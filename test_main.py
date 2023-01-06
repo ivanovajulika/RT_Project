@@ -60,6 +60,8 @@ def test_btn_phone_default(browser):
 def test_tab_changes_automatically(browser):
     # создает экземпляр страницы авторизации
     page = LoginPage(browser, link)
+    # проверяет что таб меняется автоматически.
+    page.should_be_tab_changes_automatically()
 
 
 @allure.story("TC_004.01 | Наличие кнопки авторизации через соц. сеть VK")

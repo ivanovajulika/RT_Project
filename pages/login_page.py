@@ -1,5 +1,6 @@
 from .base_page import BasePage
 from .locators import LoginPageLocators
+from .data import Data
 
 
 class LoginPage(BasePage):
@@ -65,6 +66,21 @@ class LoginPage(BasePage):
     def should_be_btn_default(self):
         text = self.browser.find_element(*LoginPageLocators.BTN_DEFAULT).text
         assert text == "Телефон", "Wrong text"
+
+    def should_be_tab_changes_automatically(self):
+        email_input = self.browser.find_element(*LoginPageLocators.INPUT_USERNAME)
+        email_input.send_keys(Data.email)
+        self.browser.find_element(*LoginPageLocators.INPUT_PASSWORD).click()
+        color = self.browser.find_element(*LoginPageLocators.BTN_MAIL).value_of_css_property(
+            "color"
+        )
+        assert color == "rgba(255, 79, 18, 1)", "Wrong color"
+        color = self.browser.find_element(*LoginPageLocators.BTN_PHONE).value_of_css_property(
+            "color"
+        )
+        assert color == "rgba(16, 24, 40, 1)", "Wrong color"
+        text = self.browser.find_element(*LoginPageLocators.PLACEHOLDER_ACTIVE).text
+        assert text == "Электронная почта", "Wrong text in placeholder"
 
     # def register_user(self, email="email", password="password"):
     #     email_input = self.browser.find_element(*LoginPageLocators.REG_EMAIL)
