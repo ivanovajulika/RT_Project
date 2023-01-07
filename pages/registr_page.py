@@ -1,7 +1,5 @@
 from .base_page import BasePage
-from .locators import LoginPageLocators
 from .locators import RegistrPageLocators
-from .data import Data
 
 
 class RegistrPage(BasePage):
