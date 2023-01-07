@@ -11,7 +11,9 @@ def generate_string(n):
 link = "https://b2c.passport.rt.ru"
 
 
-@allure.story("TC_007.01 | Форма 'Авторизации' - Ввод валидных данных в поле для ввода имени.")
+@allure.story(
+    "TC_007.01 | Форма 'Авторизации' - Ввод валидных данных в поле для ввода имени."
+)
 @pytest.mark.parametrize(
     "name",
     [
@@ -48,7 +50,9 @@ def test_input_name_pozitive(browser, name):
     page.input_name(name)
 
 
-@allure.story("TC_007.02 | Форма 'Авторизации' - Ввод не валидных данных в поле для ввода имени.")
+@allure.story(
+    "TC_007.02 | Форма 'Авторизации' - Ввод не валидных данных в поле для ввода имени."
+)
 @pytest.mark.parametrize(
     "name",
     [
