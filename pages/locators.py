@@ -34,5 +34,5 @@ class BasePageLocators:
 class RegistrPageLocators:
     INPUT_FIRSTNAME = (By.NAME, "firstName")
     INPUT_LASTNAME = (By.NAME, "lastName")
-    ERR = (By.CLASS_NAME, "rt-input-container__meta--error")
+    ERR = (By.XPATH, "//*[@id='page-right']//form/div[1]/div[1]/span")
     BTN_REGISTR = (By.NAME, "register")
