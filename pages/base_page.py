@@ -26,11 +26,20 @@ class BasePage:
         color = self.browser.find_element(method, locator).value_of_css_property(
             "color"
         )
+        print(color)
         assert color == c, "Wrong color"
 
     def changes_text(self, method, locator, word):
         text = self.browser.find_element(method, locator).text
         assert text == word, "Wrong text in placeholder"
+
+    def autorized_user(self, method, locator, login, password):
+        self.browser.find_element(method, locator).click()
+        login_input = self.browser.find_element(*LoginPageLocators.INPUT_USERNAME)
+        login_input.send_keys(login)
+        password_input = self.browser.find_element(*LoginPageLocators.INPUT_PASSWORD)
+        password_input.send_keys(password)
+        self.browser.find_element(*LoginPageLocators.BTN_ENTER).click()
 
     # def should_be_autorized_user(self):
     #     assert self.element_is_present(*BasePageLocators.USER_ICON)

@@ -121,23 +121,18 @@ class LoginPage(BasePage):
         self.changes_color(*LoginPageLocators.BTN_LS, "rgba(16, 24, 40, 1)")
         self.changes_text(*LoginPageLocators.PLACEHOLDER_ACTIVE, "Логин")
 
-    def autorized_user_with_valid_data(self):
-        self.browser.find_element(*LoginPageLocators.BTN_MAIL).click()
-        email_input = self.browser.find_element(*LoginPageLocators.INPUT_USERNAME)
-        email_input.send_keys(Data.email)
-        password_input = self.browser.find_element(*LoginPageLocators.INPUT_PASSWORD)
-        password_input.send_keys(Data.password)
-        self.browser.find_element(*LoginPageLocators.BTN_ENTER).click()
-
+    def autorized_user_with_valid_email(self):
+        self.autorized_user(*LoginPageLocators.BTN_MAIL, Data.email, Data.password)
+        
+    def autorized_user_with_valid_login(self):
+        self.autorized_user(*LoginPageLocators.BTN_LOGIN, Data.login, Data.password)
+        
     def autorized_user_with_invalid_password(self):
-        self.browser.implicitly_wait(10)
-        self.browser.find_element(*LoginPageLocators.BTN_MAIL).click()
-        email_input = self.browser.find_element(*LoginPageLocators.INPUT_USERNAME)
-        email_input.send_keys(Data.email)
-        password_input = self.browser.find_element(*LoginPageLocators.INPUT_PASSWORD)
-        password_input.send_keys(Data.invalid_password)
-        self.browser.find_element(*LoginPageLocators.BTN_ENTER).click()
-
+        self.autorized_user(*LoginPageLocators.BTN_MAIL, Data.email, Data.invalid_password)
+        
+    def autorized_user_with_empty_email(self):
+        self.autorized_user(*LoginPageLocators.BTN_MAIL, "", Data.password)
+        
     def should_be_autorized_user(self):
         assert self.element_is_present(*BasePageLocators.BTN_LK)
         assert self.element_is_present(*BasePageLocators.BTN_LOGOUT)
@@ -154,5 +149,9 @@ class LoginPage(BasePage):
         assert self.element_is_present(*LoginPageLocators.LINK_ERROR)
         self.changes_text(*LoginPageLocators.LINK_ERROR, "Неверный логин или пароль")
 
-    def should_be_captcha(self):
-        assert self.element_is_present(*LoginPageLocators.CAPTCHA)
+    def should_be_error_empty_email(self):
+        assert self.element_is_present(*LoginPageLocators.LINK_INPUT_ERROR)
+        self.changes_text(
+            *LoginPageLocators.LINK_INPUT_ERROR,
+            "Введите адрес, указанный при регистрации"
+        )
