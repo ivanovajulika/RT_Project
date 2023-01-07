@@ -155,3 +155,6 @@ class LoginPage(BasePage):
             *LoginPageLocators.LINK_INPUT_ERROR,
             "Введите адрес, указанный при регистрации"
         )
+    def go_registration(self):
+        self.browser.find_element(*LoginPageLocators.LINK_REGISTRATION).click()
+        
