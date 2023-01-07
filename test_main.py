@@ -124,7 +124,9 @@ def test_input_login_in_ls(browser):
     page.should_be_tab_changes_login_in_ls()
 
 
-@allure.story("TC_004.01 | Наличие кнопки авторизации через соц. сеть VK")
+@allure.story(
+    "TC_004.01 | Форма 'Авторизации' - Наличие кнопки авторизации через соц. сеть VK"
+)
 def test_user_can_go_to_vk(browser):
     # создает экземпляр страницы авторизации
     page = LoginPage(browser, link)
@@ -134,7 +136,9 @@ def test_user_can_go_to_vk(browser):
     page.go_to_vk_page()
 
 
-@allure.story("TC_004.02 | Наличие кнопки авторизации через соц. сеть OK")
+@allure.story(
+    "TC_004.02 | Форма 'Авторизации' - Наличие кнопки авторизации через соц. сеть OK"
+)
 def test_user_can_go_to_ok(browser):
     # создает экземпляр страницы авторизации
     page = LoginPage(browser, link)
@@ -144,7 +148,9 @@ def test_user_can_go_to_ok(browser):
     page.go_to_ok_page()
 
 
-@allure.story("TC_004.03 | Наличие кнопки авторизации через соц. сеть Mail")
+@allure.story(
+    "TC_004.03 | Форма 'Авторизации' - Наличие кнопки авторизации через соц. сеть Mail"
+)
 def test_user_can_go_to_mail(browser):
     # создает экземпляр страницы авторизации
     page = LoginPage(browser, link)
@@ -154,7 +160,9 @@ def test_user_can_go_to_mail(browser):
     page.go_to_mail_page()
 
 
-@allure.story("TC_004.04 | Наличие кнопки авторизации через соц. сеть Google")
+@allure.story(
+    "TC_004.04 | Форма 'Авторизации' - Наличие кнопки авторизации через соц. сеть Google"
+)
 def test_user_can_go_to_google(browser):
     # создает экземпляр страницы авторизации
     page = LoginPage(browser, link)
@@ -164,7 +172,9 @@ def test_user_can_go_to_google(browser):
     page.go_to_google_page()
 
 
-@allure.story("TC_004.05 | Наличие кнопки авторизации через соц. сеть YA")
+@allure.story(
+    "TC_004.05 | Форма 'Авторизации' - Наличие кнопки авторизации через соц. сеть YA"
+)
 def test_user_can_go_to_ya(browser):
     # создает экземпляр страницы авторизации
     page = LoginPage(browser, link)

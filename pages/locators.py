@@ -18,6 +18,7 @@ class LoginPageLocators:
     PLACEHOLDER_INPUT = (By.CLASS_NAME, "rt-input__placeholder")
     PLACEHOLDER_ACTIVE = (By.CLASS_NAME, "rt-input__placeholder--top")
     CAPTCHA = (By.CLASS_NAME, "rt-captcha__image")
+    LINK_REGISTRATION = (By.ID, "kc-register")
     LINK_VK = (By.ID, "oidc_vk")
     LINK_OK = (By.ID, "oidc_ok")
     LINK_MAIL = (By.ID, "oidc_mail")
@@ -28,3 +29,10 @@ class LoginPageLocators:
 class BasePageLocators:
     BTN_LK = (By.ID, "lk-btn")
     BTN_LOGOUT = (By.ID, "logout-btn")
+
+
+class RegistrPageLocators:
+    INPUT_FIRSTNAME = (By.NAME, "firstName")
+    INPUT_LASTNAME = (By.NAME, "lastName")
+    ERR = (By.CLASS_NAME, "rt-input-container__meta--error")
+    BTN_REGISTR = (By.NAME, "register")

@@ -123,16 +123,18 @@ class LoginPage(BasePage):
 
     def autorized_user_with_valid_email(self):
         self.autorized_user(*LoginPageLocators.BTN_MAIL, Data.email, Data.password)
-        
+
     def autorized_user_with_valid_login(self):
         self.autorized_user(*LoginPageLocators.BTN_LOGIN, Data.login, Data.password)
-        
+
     def autorized_user_with_invalid_password(self):
-        self.autorized_user(*LoginPageLocators.BTN_MAIL, Data.email, Data.invalid_password)
-        
+        self.autorized_user(
+            *LoginPageLocators.BTN_MAIL, Data.email, Data.invalid_password
+        )
+
     def autorized_user_with_empty_email(self):
         self.autorized_user(*LoginPageLocators.BTN_MAIL, "", Data.password)
-        
+
     def should_be_autorized_user(self):
         assert self.element_is_present(*BasePageLocators.BTN_LK)
         assert self.element_is_present(*BasePageLocators.BTN_LOGOUT)
@@ -155,3 +157,6 @@ class LoginPage(BasePage):
             *LoginPageLocators.LINK_INPUT_ERROR,
             "Введите адрес, указанный при регистрации"
         )
+
+    def go_registration(self):
+        self.browser.find_element(*LoginPageLocators.LINK_REGISTRATION).click()
