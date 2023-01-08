@@ -36,7 +36,7 @@ link = "https://b2c.passport.rt.ru"
         "with -",
         "begin space",
         "end space",
-        "uper",
+        "upper",
     ],
 )
 def test_input_name_pozitive(browser, name):
