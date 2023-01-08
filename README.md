@@ -1,5 +1,5 @@
 #### Project Description
-Final test automation project.
+Final test automation project to trigger automated tests, generate Allure Report and publish to GitHub Pages via GitHub Actions workflow.
 Test object https://b2c.passport.rt.ru
 
 [![selenium_test](https://github.com/ivanovajulika/RT_Project/actions/workflows/action.yml/badge.svg)](https://github.com/ivanovajulika/RT_Project/actions/workflows/action.yml) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
