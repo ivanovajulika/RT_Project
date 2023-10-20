@@ -4,6 +4,7 @@ import allure
 link = "https://b2c.passport.rt.ru"
 link = "https://b2c.passport.rt.ru"
 
+
 @allure.story("TC_001.01 | Меню выбора типа аутентификации - кнопка 'Телефон'")
 def test_btn_phone(browser):
     # создает экземпляр страницы авторизации
@@ -183,6 +184,7 @@ def test_user_can_go_to_ya(browser):
     page.should_be_link_to_ya_page()
     # переходит на страницу соц.сети
     page.go_to_ya_page()
+
 
 # COMMENTS!!!!!!!!!!!
 # Комментарии!!!!!!!!!!!!!!!!!
