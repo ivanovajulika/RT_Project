@@ -1,8 +1,4 @@
 from pages.login_page import LoginPage
-import allure
-
-
-link = "https://b2c.passport.rt.ru"
 
 
 @allure.story(
