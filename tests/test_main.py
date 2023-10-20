@@ -2,6 +2,7 @@ from pages.login_page import LoginPage
 import allure
 
 link = "https://b2c.passport.rt.ru"
+link = "https://b2c.passport.rt.ru"
 
 
 @allure.story("TC_001.01 | Меню выбора типа аутентификации - кнопка 'Телефон'")
