@@ -183,3 +183,5 @@ def test_user_can_go_to_ya(browser):
     page.should_be_link_to_ya_page()
     # переходит на страницу соц.сети
     page.go_to_ya_page()
+
+# COMMENTS!!!!!!!!!!!
