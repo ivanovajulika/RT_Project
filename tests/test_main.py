@@ -185,3 +185,5 @@ def test_user_can_go_to_ya(browser):
     page.go_to_ya_page()
 
 # COMMENTS!!!!!!!!!!!
+# Комментарии!!!!!!!!!!!!!!!!!
+# Comments!!!!!!!!!!!!!!!!!!!!
